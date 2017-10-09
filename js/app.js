@@ -1,9 +1,9 @@
-var a = [prompt("Ingrese su frase")];
-  for(var i=0; i<a[0].length;i++) {
-    if (a[0].charCodeAt(i) === " ".charCodeAt()) {
-      console.log("No ingrese espacios en blanco");
-      } else if (isNaN(a[0][i]) === false) {
-      console.log ("No ingrese números");
+var phrase = [prompt("Ingrese su frase")];
+  for(var i=0; i<phrase[0].length;i++) {
+    if (phrase[0].charCodeAt(i) === " ".charCodeAt()) {
+      alert("No ingrese espacios en blanco");
+      } else if (isNaN(phrase[0][i]) === false) {
+      alert ("No ingrese números");
     }
   }
 
