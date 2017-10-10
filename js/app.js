@@ -1,52 +1,51 @@
-var phrase = [prompt("Ingrese su frase")];
-  for(var i=0; i<phrase[0].length;i++) {
-    if (phrase[0].charCodeAt(i) === " ".charCodeAt()) {
-      alert("No ingrese espacios en blanco");
-      } else if (isNaN(phrase[0][i]) === false) {
-      alert ("No ingrese números");
-    }
-  }
-
 var cipher= function(array) {
   var numAscii=[];
     for (var e=0;e<array[0].length;e++){
       numAscii.push(array[0].charCodeAt(e));
       }
-
-    for (var b=0;b<numAscii.length;b++){
-      var change=[];
-      if (array[0].charCodeAt(b)<=90){
-        numAscii[b]=(numAscii[b]-65+33)%26+65;
-        change.push(String.fromCharCode(numAscii[b]))
+    var change=[];
+for (var i=0; i<numAscii.length;i++){
+  if (numAscii[i]<=90){
+      change.push((numAscii[i]-65+33)%26+65);
       } else {
-        numAscii[b]=(numAscii[b]-97+33)%26+97;
-        change.push(String.fromCharCode(numAscii[b]));
+       change.push((numAscii[i]-97+33)%26+97)
       }
-    var cipherDone=[];
-    for (var j=0;j<numAscii.length;j++){
-        cipherDone.push(String.fromCharCode(numAscii[j]));
-        var newCipher=[cipherDone.join("")];
-        return newCipher;
-    }
-  }
-};
+}
 
+  var cipherDone=[];
+    for (var i=0;i<change.length;i++){
+        cipherDone.push(String.fromCharCode(change[i]));
+        var newCipher=[cipherDone.join("")];
+    }
+    return newCipher;
+};
 var decipher=function(array) {
     var nums=[];
-    for (var e=0;e<array[0].length;e++){
-      nums.push(array[0][e].charCodeAt());
+    for (var i=0;i<array[0].length;i++){
+      nums.push(array[0].charCodeAt(i));
       }
-  var arrDes=[];
-  var desc=[];
-  for (var c=0;c<nums.length;c++){
-      if (array[0].charCodeAt(c)<=90){
-        desc=(nums[c]-33+65)%26+65;
-        arrDes.push(String.fromCharCode(desc));
+ var change=[];
+for (var i=0; i<nums.length;i++){
+  if (nums[i]<=90){
+      change.push((nums[i]+65-33)%26+65);
       } else {
-        desc=(nums[c]-33+97)%26+(97-5);
-        arrDes.push(String.fromCharCode(desc));
+       change.push((nums[i]+97+33)%26+97)
       }
-        var decipherDone= [arrDes.join("")];
-        return decipherDone;
-  }
+}
+  var decipherDone=[];
+    for (var i=0;i<change.length;i++){
+        decipherDone.push(String.fromCharCode(change[i]));
+        var newCipher=[decipherDone.join("")];
+    }
+    return newCipher;
 };
+
+var a = [prompt("Ingrese su frase")];
+  for(var i=0; i<a[0].length;i++) {
+    if (a[0].charCodeAt(i) === " ".charCodeAt()||isNaN(a[0][i]) === false) {
+        alert("No ingrese números ni espacios en blanco");
+        break
+      } else {
+       decipher(cipher(a));
+    }
+  }
