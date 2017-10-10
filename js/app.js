@@ -59,6 +59,6 @@ var obj={
         break
   // Una vez validado aplicamos la funcion cipher
       } else {
-       document.write(obj);
+       console.log(obj["TEXTO ORIGINAL"]+"\n" + obj["TEXTO CODIFICADO"]);
     }
   }
