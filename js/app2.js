@@ -1,13 +1,15 @@
-var option=prompt("Elija una de las opciones de cifrado "+"\n" + "1. Cifrar "+"\n" + "2. Decifrar");
-//validamos que ingrese la opcion correcta, si es correcta evaluamos la frase que no contenga números ni espacios
-for (var m=0; m<option.length;m++) {
-   if (option!=="1" && option!=="2") {
-       alert("Solo ingrese el número 1 o 2 para continuar");
-       break;
-       } else {
-         var phrase = prompt("Ingrese su frase por favor");
-           }
-       }
+//Se le muestra al usuario un menu de opciones para Cifrar y Descifrar 
+var option = prompt("Elija una opciones "+"\n" + "1. Cifrar "+"\n" + "2. Decifrar"+"\n"+"3. Salir");
+//validamos que ingrese la opción correcta, si es correcta evaluamos la frase que no contenga números ni espacios
+if (option==="3"){
+    alert("Regrese pronto");
+}
+ else if (option !== "1" && option !== "2" && option !=="3") {
+  alert("Solo ingrese opción 1 o 2");
+  option = null;
+  } else {
+    var phrase = prompt("Ingrese su frase por favor");
+}
        for(var i=0; i<phrase.length;i++) {
            if (phrase.charCodeAt(i) === " ".charCodeAt()||isNaN(phrase[i]) === false) {
              alert("No ingrese números ni espacios en blanco");
