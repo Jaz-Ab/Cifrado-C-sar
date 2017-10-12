@@ -8,9 +8,9 @@ var cipher= function(array) {
 //aplicaremos la formula del cifrado de Cesar
   var change=[];
   for (var i=0; i<numAscii.length;i++) {
-    if (numAscii[i]<=90) {
+    if (numAscii[i]>=65 && numAscii[i]<=90) {
       change.push((numAscii[i]-65+33)%26+65); // MAYUSCULAS
-    } else {
+    } else if (numAscii[i]>=65 && numAscii[i]<=90) {
        change.push((numAscii[i]-97+33)%26+97);//minúsculas
     }
   }
@@ -23,7 +23,6 @@ var cipher= function(array) {
     }
     return newCipher;
 };
-
 //decipher() es una funcion que descifra el array dado
 var decipher=function(array) {
 //Convertimos las letras en números Ascii con push() y charCodeAt()
@@ -35,9 +34,9 @@ var decipher=function(array) {
 //Lo almacenamos en la variable change
   var change=[];
   for (var u=0; u<nums.length;u++) {
-    if (nums[u]<=90) {
+    if (nums[u]>=65 && nums[u]<=90) {
       change.push((nums[u]+65-33)%26+65);//MAYUSCULAS
-      } else {
+      } else if (nums[u]>=97 && nums[u]<=122){
        change.push((nums[u]+97+33)%26+97);//minúsculas
       }
   }
@@ -50,7 +49,6 @@ var decipher=function(array) {
     }
       return newCipher;
 };
-
 //Inicio del programa
 // Pedimos al usuario que elija una opcion
 var option=[prompt("Elija una de las opciones de cifrado "+"\n" + "1. Cifrar "+"\n" + "2. Decifrar")];
@@ -62,12 +60,13 @@ for (var m=0; m<option[0].length;m++) {
     break;
     } else {
     var sentence = [prompt("Ingrese su frase por favor")];
-      for(var i=0; i<sentence[0].length;i++) {
-        if (sentence[0].charCodeAt(i) === " ".charCodeAt()||isNaN(sentence[0][i]) === false) {
-          alert("No ingrese números ni espacios en blanco");
-            break
-        }
-      }
+    }
+  for (var i=0; i<sentence[0].length;i++) {
+    if (sentence[0].charCodeAt(i) === " ".charCodeAt()||isNaN(sentence[0][i]) === false) {
+      alert("No ingrese números ni espacios en blanco");
+      option[0]= null;
+      break;
+    }
   }
 }
 //Una vez validado todo pasamos a realizar la opcion que el usuario haya escogido y lo mostramos por medio de un alert()
